@@ -1,0 +1,546 @@
+/* Elite Fashions Premium Styles */
+
+/* CSS Variables for Theme */
+:root {
+    --elite-50: 248 250 252; /* #f8fafc */
+    --elite-100: 241 245 249; /* #f1f5f9 */
+    --elite-200: 226 232 240; /* #e2e8f0 */
+    --elite-300: 203 213 225; /* #cbd5e1 */
+    --elite-400: 148 163 184; /* #94a3b8 */
+    --elite-500: 100 116 139; /* #64748b */
+    --elite-600: 71 85 105; /* #475569 */
+    --elite-700: 51 65 85; /* #334155 */
+    --elite-800: 30 41 59; /* #1e293b */
+    --elite-900: 15 23 42; /* #0f172a */
+    --elite-950: 2 6 23; /* #020617 */
+    
+    --gold-50: 255 251 235; /* #fffbeb */
+    --gold-100: 254 243 199; /* #fef3c7 */
+    --gold-200: 253 230 138; /* #fde68a */
+    --gold-300: 252 211 77; /* #fcd34d */
+    --gold-400: 251 191 36; /* #fbbf24 */
+    --gold-500: 245 158 11; /* #f59e0b */
+    --gold-600: 217 119 6; /* #d97706 */
+    --gold-700: 180 83 9; /* #b45309 */
+    --gold-800: 146 64 14; /* #92400e */
+    --gold-900: 120 53 15; /* #78350f */
+}
+
+/* Custom Animations */
+@keyframes slideDown {
+    from { 
+        transform: translateY(-100%); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(20px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+@keyframes scaleIn {
+    from { 
+        transform: scale(0.95); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.animate-slideDown {
+    animation: slideDown 0.3s ease-out;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease-in;
+}
+
+.animate-slideUp {
+    animation: slideUp 0.4s ease-out;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.3s ease-out;
+}
+
+/* Premium Typography */
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-sans {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Enhanced Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, hsl(var(--gold-500)), hsl(var(--gold-600)));
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.39);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, hsl(var(--gold-600)), hsl(var(--gold-700)));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(245, 158, 11, 0.5);
+}
+
+.btn-secondary {
+    background: hsl(var(--elite-100));
+    color: hsl(var(--elite-700));
+    border: 2px solid hsl(var(--elite-200));
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: hsl(var(--elite-200));
+    border-color: hsl(var(--elite-300));
+    transform: translateY(-1px);
+}
+
+/* Hamburger Menu Animation */
+.hamburger-line {
+    transition: all 0.3s ease;
+}
+
+#mobileMenuBtn.open .hamburger-line:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#mobileMenuBtn.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+#mobileMenuBtn.open .hamburger-line:last-child {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Product Card Premium Styles */
+.product-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(245, 158, 11, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(245, 158, 11, 0.2);
+}
+
+.product-card img {
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Star Rating Styles */
+.star-filled {
+    color: hsl(var(--gold-400));
+    filter: drop-shadow(0 1px 2px rgba(245, 158, 11, 0.3));
+}
+
+.star-empty {
+    color: hsl(var(--elite-300));
+}
+
+/* Badge Styles */
+.badge-new {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    box-shadow: 0 2px 4px rgba(255, 107, 107, 0.3);
+}
+
+.badge-sale {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    box-shadow: 0 2px 4px rgba(78, 205, 196, 0.3);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    border: 3px solid hsl(var(--elite-200));
+    border-top: 3px solid hsl(var(--gold-500));
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Enhanced Loading State */
+.skeleton {
+    background: linear-gradient(90deg, 
+        hsl(var(--elite-200)) 25%, 
+        hsl(var(--elite-100)) 50%, 
+        hsl(var(--elite-200)) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--elite-100));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, hsl(var(--gold-400)), hsl(var(--gold-500)));
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, hsl(var(--gold-500)), hsl(var(--gold-600)));
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+    background: hsl(var(--elite-800));
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, hsl(var(--gold-600)), hsl(var(--gold-700)));
+}
+
+/* Scroll Lock */
+.scroll-locked {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Mobile menu transition */
+#mobileMenu.open {
+    max-height: 400px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Category Filter Enhancements */
+.category-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.category-btn:hover::before {
+    left: 100%;
+}
+
+/* Image Upload Guidance Box */
+.definition-toggle {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.def-arrow {
+    transition: transform 0.3s ease;
+}
+
+.definition-box {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: hsl(var(--elite-50));
+    border: 1px solid hsl(var(--elite-200));
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+    margin-top: 0.5rem;
+}
+
+.dark .definition-box {
+    background: hsl(var(--elite-700));
+    border-color: hsl(var(--elite-600));
+}
+
+.definition-toggle.active .definition-box {
+    max-height: 120px;
+    padding: 1rem;
+}
+
+.definition-toggle.active .def-arrow {
+    transform: rotate(180deg);
+}
+
+/* Glass morphism effects */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced form inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+    transition: all 0.3s ease;
+    border-width: 2px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+/* Premium gradient backgrounds */
+.gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--gold-400)), hsl(var(--gold-600)));
+}
+
+.gradient-secondary {
+    background: linear-gradient(135deg, hsl(var(--elite-600)), hsl(var(--elite-800)));
+}
+
+.gradient-accent {
+    background: linear-gradient(135deg, hsl(var(--gold-300)), hsl(var(--gold-500)));
+}
+
+/* Text gradient utility */
+.text-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold-400)), hsl(var(--gold-600)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Enhanced focus states */
+.focus-ring {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+/* Responsive text utilities */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Custom transitions for better UX */
+.transition-premium {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 768px) {
+    .product-card {
+        margin-bottom: 1rem;
+    }
+    
+    .product-card:hover {
+        transform: translateY(-4px);
+    }
+    
+    .category-btn {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Go to Top Button */
+#goTopBtn {
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+    transition: all 0.3s ease;
+}
+
+#goTopBtn:hover {
+    box-shadow: 0 12px 35px rgba(245, 158, 11, 0.4);
+}
+
+/* Premium card hover effects */
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced dark mode support */
+.dark .product-card {
+    background: hsl(var(--elite-800));
+    border: 1px solid hsl(var(--elite-700));
+}
+
+.dark .product-card:hover {
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(245, 158, 11, 0.3);
+}
+
+/* Success and error message styles */
+.alert-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.39);
+}
+
+.alert-error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 14px 0 rgba(239, 68, 68, 0.39);
+}
+
+/* Logo animation */
+.logo-glow {
+    animation: logoGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+    from {
+        box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+    }
+    to {
+        box-shadow: 0 0 30px rgba(245, 158, 11, 0.8);
+    }
+}
+
+/* Premium input styles */
+.input-premium {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(245, 158, 11, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.input-premium:focus {
+    border-color: hsl(var(--gold-500));
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+/* Custom selection styles */
+::selection {
+    background: hsl(var(--gold-200));
+    color: hsl(var(--elite-900));
+}
+
+::-moz-selection {
+    background: hsl(var(--gold-200));
+    color: hsl(var(--elite-900));
+}
+
+/* Enhanced focus visible for accessibility */
+.focus-visible:focus-visible {
+    outline: 2px solid hsl(var(--gold-500));
+    outline-offset: 2px;
+}
